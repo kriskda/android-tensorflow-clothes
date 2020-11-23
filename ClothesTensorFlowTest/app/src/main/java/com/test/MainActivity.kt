@@ -15,8 +15,6 @@ import androidx.core.content.ContextCompat
 import com.test.ml.ConvertedModel
 import kotlinx.android.synthetic.main.activity_main.*
 import org.tensorflow.lite.DataType
-import org.tensorflow.lite.support.common.TensorProcessor
-import org.tensorflow.lite.support.common.ops.NormalizeOp
 import org.tensorflow.lite.support.label.TensorLabel
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.nio.Buffer
@@ -138,11 +136,10 @@ class MainActivity : AppCompatActivity() {
         val pixels = IntArray(width * height)
         getPixels(pixels, 0, width, 0, 0, width, height)
         for (pixel in pixels) {
-            imageData.putFloat(
-                    (Color.red(pixel).toFloat() +
-                            Color.blue(pixel).toFloat() +
-                            Color.green(pixel).toFloat()) / 3f
-            )
+            val value = (Color.red(pixel).toFloat() +
+                    Color.blue(pixel).toFloat() +
+                    Color.green(pixel).toFloat()) / 3f / 255f
+            imageData.putFloat(value)
         }
         return imageData
     }
