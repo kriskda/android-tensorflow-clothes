@@ -1,4 +1,4 @@
-Simple and naive test app to detect clothes based on tensorflow lite model. Uses simple non CNN network and requires negative black and white images to work. Intended to be a familarization project for keras/tensorflow.
+Simple and naive test app (didnt care about android code) to detect clothes based on tensorflow lite model. Uses simple non CNN network and requires negative black and white images to work. Intended to be a familarization project for keras/tensorflow.
 
 Note: Not sure why in preditions there are negative values as activation function was relu.
 
